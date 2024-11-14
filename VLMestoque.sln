@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vlm721api", "vlm721api\vlm721api.csproj", "{E2DFD38B-D870-4547-B8D8-EB98B7631502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vlm721pwa", "vlm721pwa\vlm721pwa.csproj", "{BD7E04DC-40ED-4B1B-A710-A1C05226EFAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2DFD38B-D870-4547-B8D8-EB98B7631502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2DFD38B-D870-4547-B8D8-EB98B7631502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2DFD38B-D870-4547-B8D8-EB98B7631502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2DFD38B-D870-4547-B8D8-EB98B7631502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD7E04DC-40ED-4B1B-A710-A1C05226EFAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD7E04DC-40ED-4B1B-A710-A1C05226EFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD7E04DC-40ED-4B1B-A710-A1C05226EFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD7E04DC-40ED-4B1B-A710-A1C05226EFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8815FF20-BB3F-4BE2-85D5-66FB8800907D}
+	EndGlobalSection
+EndGlobal
