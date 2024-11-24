@@ -18,35 +18,66 @@ namespace vlm721api.Controllers
 
         // GET: api/<ItemsController>
         [HttpGet]
-        public List<Item> Get()
+        public ActionResult<List<Item>> Get()
         {
-            return _repository.GetAll();
+            var response = _repository.GetAll();
+            if (response.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(response);
+
         }
 
         // GET api/<ItemsController>/5
         [HttpGet("{id}")]
-        public Item Get(int id)
+        public ActionResult<Item> Get(int id)
         {
-            return _repository.GetById(id);
+            var response = _repository.GetById(id);
+            if (response == null)
+            {
+                return NotFound();
+            }
+            return Ok(response);
+
         }
 
         // POST api/<ItemsController>
         [HttpPost]
-        public void Post([FromBody] DTOItem value)
+        public ActionResult Post([FromBody] DTOItem item)
         {
-            _repository.Add(value);
+
+            _repository.Add(item);
+            return Created();
+
         }
 
         // PUT api/<ItemsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(int id, [FromBody] DTOItem item)
         {
+
+            if (_repository.GetById(id) == null)
+            {
+                return NotFound();
+            }
+            _repository.Update(item, id);
+            return Ok();
+
+
         }
 
         // DELETE api/<ItemsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            var existingItem = _repository.GetById(id);
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
+            _repository.Delete(id);
+            return Ok();
         }
     }
 }

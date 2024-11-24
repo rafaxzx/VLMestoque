@@ -21,7 +21,7 @@ namespace vlm721api
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
-            builder.Services.AddScoped<IItemRepository, ItemRepository>(); 
+            builder.Services.AddScoped<IItemRepository, ItemRepository>();
 
             var stringConnection = configuration.GetConnectionString("SQLiteConnection");
 
@@ -39,7 +39,7 @@ namespace vlm721api
                     command.ExecuteNonQuery();
                 }
 
-                sql = 
+                sql =
                     @"CREATE TABLE IF NOT EXISTS Items
                     (Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Codeintern TEXT,
@@ -67,9 +67,7 @@ namespace vlm721api
 
             app.UseAuthorization();
 
-
             app.MapControllers();
-
 
             app.Run();
         }

@@ -2,7 +2,7 @@
 
 namespace vlm721api.Repositories
 {
-    public interface IManufacturerRepository
+    public interface IManufacturerRepository : IDisposable
     {
         List<Manufacturer> GetAll();
         Manufacturer GetById(int id);

@@ -2,7 +2,6 @@
 {
     public class DTOItem
     {
-
         public int Id { get; set; }
         public string CodIntern { get; set; } = string.Empty;
         public string ItemName { get; set; } = string.Empty;

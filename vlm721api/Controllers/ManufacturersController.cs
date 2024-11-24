@@ -19,35 +19,56 @@ namespace vlm721api.Controllers
 
         // GET: api/<ManufacturersController>
         [HttpGet]
-        public List<Manufacturer> Get()
+        public ActionResult<List<Manufacturer>> Get()
         {
-            return _repository.GetAll();
+            var manufacturers = _repository.GetAll();
+            return Ok(manufacturers);
         }
 
         // GET api/<ManufacturersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<Manufacturer> Get(int id)
         {
-            return "value";
+            var manufacturer = _repository.GetById(id);
+            if (manufacturer == null)
+            {
+                return NotFound();
+            }
+            return Ok(manufacturer);
         }
 
         // POST api/<ManufacturersController>
         [HttpPost]
-        public void Post([FromBody] Manufacturer value)
+        public ActionResult Post([FromBody] Manufacturer manufacturer)
         {
-            _repository.Add(value);
+            _repository.Add(manufacturer);
+            //return CreatedAtAction(nameof(Get), new { id = manufacturer.Id }, manufacturer);
+            return Created();
         }
 
         // PUT api/<ManufacturersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(int id, [FromBody] Manufacturer manufacturer)
         {
+            if (_repository.GetById(id) == null)
+            {
+                return NotFound();
+            }
+            _repository.Update(manufacturer, id);
+            return Ok();
         }
 
         // DELETE api/<ManufacturersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            var existingManufacturer = _repository.GetById(id);
+            if (existingManufacturer == null)
+            {
+                return NotFound();
+            }
+            _repository.Delete(id);
+            return Ok();
         }
     }
 }
